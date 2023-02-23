@@ -1,13 +1,23 @@
 package com.project.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.project.dto.Buyers;
+import com.project.exception.NoRecordFoundException;
+import com.project.exception.SomeThingWrongException;
 
 public interface BuyersOperation {
 
-	public void addBuyer(Buyers bys) throws SQLException;
+	public void addBuyer(Buyers buyers) throws SQLException;
 //	public void updateBuyerDetails(Buyers bys);
+
+	public List<Buyers> getAllBuyers() throws SomeThingWrongException, NoRecordFoundException;
+
+	public void Login(String username, String password) throws SomeThingWrongException, NoRecordFoundException;
+
+	public void logout();
+	
 	
 	
 	

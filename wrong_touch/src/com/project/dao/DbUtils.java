@@ -2,6 +2,7 @@ package com.project.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -34,5 +35,11 @@ public class DbUtils {
 		if (con != null) {
 			con.close();
 		}
+	}
+
+	public static boolean isResultSetEmpty(ResultSet rs) throws SQLException {
+		// TODO Auto-generated method stub
+		return (!rs.isBeforeFirst() && rs.getRow() == 0)?true:false;
+		//return false;
 	}
 }
