@@ -2,20 +2,20 @@ package com.project.dto;
 
 import java.util.Objects;
 
-public class BuyersImpl implements Buyers {
+public class SellerImpl implements Seller {
 
 	private String name;
 	private String email;
 	private String password;
 	private String phne;
-	public BuyersImpl(String name, String email, String password, String phne) {
+	public SellerImpl(String name, String email, String password, String phne) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.phne = phne;
 	}
-	public BuyersImpl() {
+	public SellerImpl() {
 		// TODO Auto-generated constructor stub
 	}
 	public String getName() {
@@ -54,17 +54,14 @@ public class BuyersImpl implements Buyers {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BuyersImpl other = (BuyersImpl) obj;
+		SellerImpl other = (SellerImpl) obj;
 		return Objects.equals(email, other.email) && Objects.equals(name, other.name)
 				&& Objects.equals(password, other.password) && Objects.equals(phne, other.phne);
 	}
 	@Override
 	public String toString() {
-		return "BuyersImpl [name=" + name + ", email=" + email + ", password=" + password + ", phne=" + phne + "]";
+		return "SellerImpl [name=" + name + ", email=" + email + ", password=" + password + ", phne=" + phne + "]";
 	}
-	
-	
-	
-	
+
 	
 }
