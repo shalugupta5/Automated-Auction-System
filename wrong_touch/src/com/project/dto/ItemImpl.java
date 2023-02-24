@@ -1,56 +1,74 @@
 package com.project.dto;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
+
+
 public class ItemImpl implements Item {
-	
-	private String name;
+
+	private Integer itemId;
+	private String itemName;
+	private Double MRP;
+	private LocalDate MFGDate;
 	private String category;
-	private String description;
-	private	double price;
-	private int quantity;
-	public ItemImpl(String name, String category, String description, double price, int quantity) {
+	
+	public ItemImpl() {}
+
+	public ItemImpl(Integer itemId, String itemName, Double mRP, LocalDate mFGDate, String category) {
 		super();
-		this.name = name;
+		this.itemId = itemId;
+		this.itemName = itemName;
+		MRP = mRP;
+		MFGDate = mFGDate;
 		this.category = category;
-		this.description = description;
-		this.price = price;
-		this.quantity = quantity;
 	}
-	public String getName() {
-		return name;
+
+	public Integer getItemId() {
+		return itemId;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
 	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public Double getMRP() {
+		return MRP;
+	}
+
+	public void setMRP(Double mRP) {
+		MRP = mRP;
+	}
+
+	public LocalDate getMFGDate() {
+		return MFGDate;
+	}
+
+	public void setMFGDate(LocalDate mFGDate) {
+		MFGDate = mFGDate;
+	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, description, name, price, quantity);
+		return Objects.hash(MFGDate, MRP, category, itemId, itemName);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -60,16 +78,17 @@ public class ItemImpl implements Item {
 		if (getClass() != obj.getClass())
 			return false;
 		ItemImpl other = (ItemImpl) obj;
-		return Objects.equals(category, other.category) && Objects.equals(description, other.description)
-				&& Objects.equals(name, other.name)
-				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price) && quantity == other.quantity;
+		return Objects.equals(MFGDate, other.MFGDate) && Objects.equals(MRP, other.MRP)
+				&& Objects.equals(category, other.category) && Objects.equals(itemId, other.itemId)
+				&& Objects.equals(itemName, other.itemName);
 	}
+
 	@Override
 	public String toString() {
-		return "ItemImpl [name=" + name + ", category=" + category + ", description=" + description + ", price=" + price
-				+ ", quantity=" + quantity + "]";
+		return "ItemImpl [itemId=" + itemId + ", itemName=" + itemName + ", MRP=" + MRP + ", MFGDate=" + MFGDate
+				+ ", category=" + category + "]";
 	}
 	
 	
-
+	
 }
