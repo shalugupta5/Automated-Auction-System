@@ -15,7 +15,8 @@ import com.project.exception.NoRecordFoundException;
 import com.project.exception.SomeThingWrongException;
 
 public class SellerOprationImpl implements SellerOpration {
-	 public void register(Seller sel) {
+	
+	 public void addSeller(Seller sel) {
 		 
 	 
 	Connection conn=null;
@@ -23,7 +24,7 @@ public class SellerOprationImpl implements SellerOpration {
 	 try {
 		 conn=DbUtils.ConnectToDatabase();
        
-         String query="INSERT into buyers(name, email, password, phne) values(?,?,?,?)";
+         String query="INSERT into sellers(name, email, password, phne) values(?,?,?,?)";
 		 PreparedStatement ps=conn.prepareStatement(query);
 		 ps.setString(1, sel.getName());
 		 ps.setString(2, sel.getEmail());
@@ -93,5 +94,53 @@ public class SellerOprationImpl implements SellerOpration {
 		return list;
 		//return null;
 	}
+
+	@Override
+	public void logout() {
+		// TODO Auto-generated method stub
+		LoggedINUser.loggedInUserId = 0;
+	}
+
+	@Override
+	public void Login(String name, String password) throws NoRecordFoundException, SomeThingWrongException {
+		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		try {
+			//connect to database
+			connection = DbUtils.ConnectToDatabase();
+			//prepare the query
+			String LOGIN_QUERY = "SELECT Seller_id FROM sellers WHERE name = ? AND password = ?";
+			
+			//get the prepared statement object
+			PreparedStatement ps = connection.prepareStatement(LOGIN_QUERY);
+			
+			//stuff the data in the query
+			ps.setString(1, name);
+			ps.setString(2, password);
+			
+			//execute query
+			ResultSet resultSet = ps.executeQuery();
+			if(DbUtils.isResultSetEmpty(resultSet)) {
+				throw new NoRecordFoundException("Invalid Username and Password Or You do not have Account please Ragister Yourself");
+			}
+			
+			//you are here means username and password combination is correct
+			resultSet.next();
+			LoggedINUser.loggedInUserId = resultSet.getInt("Seller_id");
+		}catch(SQLException sqlEx) {
+			//code to log the error in the file
+			throw new SomeThingWrongException();
+		}finally {
+			try {
+				//close the exception
+				DbUtils.closeConnection(connection);				
+			}catch(SQLException sqlEX) {
+				throw new SomeThingWrongException();
+			}
+		}
+		
+	}
+
 	
 }
