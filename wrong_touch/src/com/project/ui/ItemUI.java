@@ -94,6 +94,17 @@ public class ItemUI {
 		}
 	}
 
+
+
+	public void viewItemsByCategory() throws SomeThingWrongException, NoRecordFoundException {
+		// TODO Auto-generated method stub
+		System.out.print("Enter category ");
+		String category = scanner.next();
+		itemOperation.getItemsByCategory(category);
+		System.out.println("here you go");
+		
+	}
+
 //	public void viewSoldItemHistory() {
 //		// TODO Auto-generated method stub
 //		

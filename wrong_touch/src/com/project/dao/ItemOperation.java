@@ -20,6 +20,8 @@ public interface ItemOperation {
 	void removeItem(Integer itemId) throws  NoRecordFoundException, SomeThingWrongException;
 
 	List<Item> getAllItems() throws NoRecordFoundException, SomeThingWrongException, SQLException;
+
+	void getItemsByCategory(String category) throws NoRecordFoundException, SomeThingWrongException;
 	
 
 }
