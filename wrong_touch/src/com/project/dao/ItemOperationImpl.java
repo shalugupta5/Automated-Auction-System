@@ -1,6 +1,7 @@
 package com.project.dao;
 
 import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -182,8 +183,54 @@ public class ItemOperationImpl implements ItemOperation {
 		return list;
 		//return null;
 	}
+
+	@Override
+	public void getItemsByCategory(String category)    {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		//List<Product> list = null;
+		try {
+			//connect to database
+			connection = DbUtils.ConnectToDatabase();
+			//prepare the query
+			String SELECT_QUERY = "SELECT * FROM items WHERE category = ?";
+			
+			//get the prepared statement object
+			PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+			ps.setString(1, category);
+			
+			//execute query
+			ResultSet resultSet = ps.executeQuery();
+			
+			//check if result set is empty
+			if(DbUtils.isResultSetEmpty(resultSet)) {
+				throw new NoRecordFoundException("No product Found in this category");
+			}
+			 while (resultSet.next()) {
+	                int itemid = resultSet.getInt("itemid");
+	                String itemname = resultSet.getString("itemname");
+	                double MRP = resultSet.getDouble("MRP");
+	                String MFGDate =resultSet.getString("MFGDate");
+	                
+	                System.out.println(itemid + "\t" + itemname + "\t" + MRP + "\t" + MFGDate);
+	            }
+			//list = getProductListFromResultSet(resultSet);
+		}catch(SQLException |NoRecordFoundException sqlEx) {
+			//code to log the error in the file
+			//throw new SomeThingWrongException();
+			System.out.println(sqlEx);
+		}finally {
+			try {
+				//close the exception
+				DbUtils.closeConnection(connection);				
+			}catch(SQLException sqlEX) {
+				//throw new SomeThingWrongException();
+				System.out.println(sqlEX);
+			}
+		}
+		
 	}
 
-	
+}
 
 

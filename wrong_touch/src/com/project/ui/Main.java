@@ -2,7 +2,6 @@ package com.project.ui;
 
 import java.util.Scanner;
 
-
 import com.project.dao.LoggedINUser;
 import com.project.dto.Buyers;
 import com.project.dto.BuyersImpl;
@@ -13,11 +12,15 @@ import com.project.exception.SomeThingWrongException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
 public class Main {
 	private static BuyerUI buyerUI;
 	private static SellerUI sellerUI;
 	private static AdminUI adminUI;
 	private static ItemUI itemUI;
+	private static DisputeUI disputeUI;
+	
+
 	static void displayAdminMenu() {
 		System.out.println("1. View all Buyers");
 		System.out.println("2. View all Sellers");
@@ -27,6 +30,7 @@ public class Main {
 		System.out.println("0. Exit");
 	}
 
+	
 	static void adminMenu(Scanner sc) throws SomeThingWrongException, NoRecordFoundException {
 		int choice = 0;
 		do {
@@ -43,9 +47,9 @@ public class Main {
 			case 2:
 				sellerUI.viewAllSellers();
 				break;
-//				case 3:
-//					categoryUI.updateCategory();
-//					break;
+			case 3:
+				disputeUI.viewDisputeReport();
+				break;
 //				case 4:
 //					categoryUI.deleteCategory();
 //					break;
@@ -58,6 +62,7 @@ public class Main {
 		} while (choice != 0);
 	}
 
+	
 	static void adminLogin(Scanner sc) throws SomeThingWrongException, NoRecordFoundException {
 		System.out.print("Enter username ");
 		String username = sc.next();
@@ -70,13 +75,15 @@ public class Main {
 			System.out.println("Invalid Username and Password");
 		}
 	}
+	
 
 	public static void main(String[] args) throws SomeThingWrongException, NoRecordFoundException, SQLException {
 		Scanner sc = new Scanner(System.in);
 		buyerUI = new BuyerUI(sc);
 		sellerUI = new SellerUI(sc);
 		adminUI = new AdminUI(sc);
-		itemUI=new ItemUI(sc);
+		itemUI = new ItemUI(sc);
+		disputeUI = new DisputeUI(sc);
 		int choice = 0;
 		do {
 			System.out.println("1. Admin \n2. Buyer \n3. Seller \n0. Exit");
@@ -101,6 +108,7 @@ public class Main {
 		sc.close();
 	}
 
+	
 	private static void sellerLogin(Scanner sc) throws NoRecordFoundException, SomeThingWrongException, SQLException {
 		// TODO Auto-generated method stub
 		int choice = 0;
@@ -120,6 +128,7 @@ public class Main {
 		} while (LoggedINUser.loggedInUserId != 0);
 	}
 
+	
 	private static void sellerLogIn(Scanner sc) throws NoRecordFoundException, SomeThingWrongException, SQLException {
 		// TODO Auto-generated method stub
 		if (!SellerUI.login(sc))
@@ -133,25 +142,25 @@ public class Main {
 			choice = sc.nextInt();
 //			
 			switch (choice) {
-				case 1:
-					itemUI.addItem();
-					break;
+			case 1:
+				itemUI.addItem();
+				break;
 //
-				case 2:
-					 itemUI.updateItem();
-					break;
+			case 2:
+				itemUI.updateItem();
+				break;
 //
-				case 3:
-					itemUI.removeItem();
+			case 3:
+				itemUI.removeItem();
 				break;
 //				
-				case 4:
-					itemUI.createListOfItem();
+			case 4:
+				itemUI.createListOfItem();
 				break;
 //
-	//			case 5:
-	//				itemUI.viewSoldItemHistory();
-	//				break;
+			// case 5:
+			// itemUI.viewSoldItemHistory();
+			// break;
 
 			case 0:
 				SellerUI.logout();
@@ -159,10 +168,11 @@ public class Main {
 			default:
 				System.out.println("Invalid Selection, try again");
 			}
-			
+
 		} while (LoggedINUser.loggedInUserId != 0);
 
 	}
+	
 
 	private static void displaySellerMenu() {
 		// TODO Auto-generated method stub
@@ -205,20 +215,21 @@ public class Main {
 		if (!BuyerUI.login(sc))
 			return;
 
-		System.out.println("welcome buyer");
+		System.out.println("Welcome Buyer");
 
+		
 		int choice = 0;
 		do {
 			displayBuyerMenu();
 			System.out.print("Enter selection ");
 			choice = sc.nextInt();
 			switch (choice) {
-//			case 1:
-//				ItemUI.viewAllItemsByCategory();
-//				break;
-//
-//			// no break statement here i.e. after deletion of user account, logout will also
-//			// take place
+			case 1:
+				itemUI.viewItemsByCategory();
+				break;
+
+			// no break statement here i.e. after deletion of user account, logout will also
+			// take place
 			case 0:
 				BuyerUI.logout();
 				break;
@@ -229,11 +240,14 @@ public class Main {
 
 	}
 
+	
 	private static void displayBuyerMenu() {
 		// TODO Auto-generated method stub
-
+		System.out.println("1. Search and view Items by category.");
+		System.out.println("2.  Item.");
 	}
 
+	
 	private static void buyerSignUp(Scanner sc) throws SQLException, SomeThingWrongException {
 		// TODO Auto-generated method stub
 		BuyerUI.addBuyer(sc);
