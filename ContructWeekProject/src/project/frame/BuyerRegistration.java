@@ -51,7 +51,7 @@ public class BuyerRegistration extends JFrame {
 	public BuyerRegistration() {
 		setTitle("BuyerRegistraion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 644, 498);
+		setBounds(100, 100, 922, 498);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

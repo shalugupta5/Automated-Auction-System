@@ -50,7 +50,7 @@ public class DisplayAllSellers extends JFrame {
 	public DisplayAllSellers() {
 		setTitle("AllSellers");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 608, 502);
+		setBounds(100, 100, 922, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

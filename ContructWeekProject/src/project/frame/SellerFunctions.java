@@ -26,6 +26,7 @@ import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 import project.dao.DbUtils;
 import project.exception.SomeThingWrongException;
+import project.ui.Main;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -108,7 +109,7 @@ public class SellerFunctions extends JFrame {
 	public SellerFunctions() {
 		setTitle("Welcome Seller");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 912, 494);
+		setBounds(100, 100, 922, 494);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -440,6 +441,59 @@ public class SellerFunctions extends JFrame {
 		view.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		view.setBounds(402, 410, 89, 25);
 		contentPane.add(view);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Main().setVisible(true);
+			}
+		});
+		back.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		back.setBounds(35, 24, 89, 31);
+		contentPane.add(back);
+		
+		JButton sold = new JButton("Sold");
+		sold.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					connection = DbUtils.ConnectToDatabase();
+					String SELECT_QUERY = "select itemid, max(amount) from bid  group by itemid; ";
+					
+					//get the prepared statement object
+					PreparedStatement ps = connection.prepareStatement(SELECT_QUERY);
+					
+					//execute query
+					ResultSet resultSet = ps.executeQuery();
+					ResultSetMetaData rsmd=(ResultSetMetaData) resultSet.getMetaData();
+					DefaultTableModel model = (DefaultTableModel) table.getModel();
+					model.setRowCount(0);
+					int cols=rsmd.getColumnCount();
+					String [] colname=new String[cols];
+					for(int i=0;i<cols;i++) {
+						colname[i]=rsmd.getColumnName(i+1);
+						model.setColumnIdentifiers(colname);
+						while(resultSet.next()) {
+							String itemid=resultSet.getString(1);
+							String amount=resultSet.getString(2);
+							
+							String row[]= {itemid, amount};
+							model.addRow(row);
+							
+							
+						}
+						
+					}
+					JOptionPane.showMessageDialog(sold,"Sold Items are here");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("No dispute for current date");
+					e1.printStackTrace();
+				}
+			}
+		});
+		sold.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		sold.setBounds(544, 24, 111, 31);
+		contentPane.add(sold);
 	}
 }
 

@@ -53,7 +53,7 @@ public class DailyDispute extends JFrame {
 	public DailyDispute() {
 		setTitle("DailyDispute");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 603, 496);
+		setBounds(100, 100, 922, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -117,7 +117,7 @@ public class DailyDispute extends JFrame {
 		contentPane.add(back);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(154, 95, 423, 278);
+		scrollPane.setBounds(186, 95, 491, 278);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
