@@ -11,6 +11,8 @@ import project.frame.BuyerLogIn;
 import project.frame.SellerLogIn;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -44,7 +46,7 @@ public class Main extends JFrame {
 	public Main() {
 		setTitle("Automated Auction System ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 622, 492);
+		setBounds(100, 100, 922, 492);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -89,6 +91,9 @@ public class Main extends JFrame {
 				}
 				else if(roleselection.getText().equals("3")) {
 					new BuyerLogIn().setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(submit,"SomeThingWrong");
 				}
 			}
 		});

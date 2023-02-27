@@ -54,7 +54,7 @@ public class SellerLogIn extends JFrame {
 	public SellerLogIn() {
 		setTitle("SellerLogIn");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 621, 503);
+		setBounds(100, 100, 922, 503);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

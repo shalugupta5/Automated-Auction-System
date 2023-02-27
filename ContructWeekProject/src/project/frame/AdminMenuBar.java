@@ -17,9 +17,12 @@ import project.dto.Buyers;
 import project.dto.Dispute;
 import project.ui.BuyerUI;
 import project.ui.DisputeUI;
+import project.ui.Main;
 import project.ui.SellerUI;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -59,7 +62,7 @@ public class AdminMenuBar extends JFrame {
 	public AdminMenuBar() {
 		setTitle("AdminMenuDisplay");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 469);
+		setBounds(100, 100, 922, 469);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -155,11 +158,24 @@ public class AdminMenuBar extends JFrame {
 					new DailyDispute().setVisible(true);
 					
 				}
+				else {
+					JOptionPane.showMessageDialog(submit,"SomeThingWrong");
+				}
 			}
 		});
 		submit.setFont(new Font("Tahoma", Font.BOLD, 15));
 		submit.setBounds(288, 387, 89, 23);
 		contentPane.add(submit);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Main().setVisible(true);
+			}
+		});
+		back.setFont(new Font("Tahoma", Font.BOLD, 15));
+		back.setBounds(39, 389, 89, 23);
+		contentPane.add(back);
 	}
 
 }

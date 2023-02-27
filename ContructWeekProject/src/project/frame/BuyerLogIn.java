@@ -50,7 +50,7 @@ public class BuyerLogIn extends JFrame {
 	public BuyerLogIn() {
 		setTitle("BuyerLogIn");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 685, 501);
+		setBounds(100, 100, 922, 501);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -127,6 +127,11 @@ public class BuyerLogIn extends JFrame {
 		contentPane.add(login);
 		
 		JButton signup = new JButton("SignUp");
+		signup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new BuyerRegistration().setVisible(true);
+			}
+		});
 		signup.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		signup.setBounds(449, 325, 89, 23);
 		contentPane.add(signup);

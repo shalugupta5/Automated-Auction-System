@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
 import project.dao.DbUtils;
+import project.ui.Main;
 
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -63,7 +64,7 @@ public class BuyerFunctions extends JFrame {
 	public BuyerFunctions() {
 		setTitle("BuyerOperations");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 850, 500);
+		setBounds(100, 100, 922, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -456,5 +457,15 @@ public class BuyerFunctions extends JFrame {
 		amount.setBounds(10, 21, 194, 28);
 		panel_2.add(amount);
 		amount.setColumns(10);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Main().setVisible(true);
+			}
+		});
+		back.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		back.setBounds(28, 11, 89, 23);
+		contentPane.add(back);
 	}
 }

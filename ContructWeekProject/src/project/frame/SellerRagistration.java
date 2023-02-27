@@ -52,7 +52,7 @@ public class SellerRagistration extends JFrame {
 	public SellerRagistration() {
 		setTitle("SellerRagistration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 699, 499);
+		setBounds(100, 100, 922, 499);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
