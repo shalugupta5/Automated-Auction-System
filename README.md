@@ -6,6 +6,7 @@ Automated Auction System
 Problem Description:
 Automated Auction System is an Application Software that is used for the buying and selling of products. This software can be used by the auction companies  who arrange the Auction. Various buyers and sellers are registered in the Auction company. Following are the lists of various users of the system and also the role of the users.
 
+
 ![Screenshot (227)](https://user-images.githubusercontent.com/112753764/221518881-abd2154a-d423-4c7c-8f9a-ff923169e35f.png)
 
 
