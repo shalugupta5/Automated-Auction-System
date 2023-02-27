@@ -14,22 +14,21 @@ Users are
 
 2. Buyer
 
-3.Seller
+ 3.Seller
 
 ![Automated](https://user-images.githubusercontent.com/112753764/221529866-f5668aa5-50a9-4b21-a0ea-a63e6e1fd1f8.png)
-
 
 Role of the users-
 
 1. Administrator
 
-
 ![AdminLogIn](https://user-images.githubusercontent.com/112753764/221529963-cb066055-5fcd-43ff-81d5-3239bce7e504.png)
 
 
 ![AdminMenu](https://user-images.githubusercontent.com/112753764/221530006-0ac1a6e4-8bd2-4be2-bd3e-b60f8a42b4df.png)
-A. View the registered buyer list.
 
+
+A. View the registered buyer list.
 
 ![AllBuyers](https://user-images.githubusercontent.com/112753764/221530078-a5f210a4-d7cc-4a44-91f7-5f4aa2abb862.png)
 
@@ -63,6 +62,7 @@ F. View the sold Item history.
 ![WelcomeSeller](https://user-images.githubusercontent.com/112753764/221530255-a2b1aa30-debc-46f3-997f-de8da1b87689.png)
 
 3. Buyer
+
 A. Register himself or herself as Buyer.
 
 B. Search and view Items by category.
