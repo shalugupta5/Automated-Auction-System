@@ -3,6 +3,7 @@
 
 Automated Auction System
 
+
 Problem Description:
 Automated Auction System is an Application Software that is used for the buying and selling of products. This software can be used by the auction companies  who arrange the Auction. Various buyers and sellers are registered in the Auction company. Following are the lists of various users of the system and also the role of the users.
 
@@ -15,7 +16,7 @@ Users are
 
 2. Buyer
 
- 3.Seller
+3.Seller
 
 ![Automated](https://user-images.githubusercontent.com/112753764/221529866-f5668aa5-50a9-4b21-a0ea-a63e6e1fd1f8.png)
 
@@ -46,7 +47,9 @@ E. Solve the dispute report.
 
 2. Seller
 
+
 ![SellerLogIn](https://user-images.githubusercontent.com/112753764/221530215-a5cabdd8-f27e-40bc-b170-748758b2f388.png)
+
 
 A. Register himself or herself as seller.
 
@@ -60,7 +63,9 @@ E. Remove items from the list.
 
 F. View the sold Item history.
 
+
 ![WelcomeSeller](https://user-images.githubusercontent.com/112753764/221530255-a2b1aa30-debc-46f3-997f-de8da1b87689.png)
+
 
 3. Buyer
 
