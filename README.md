@@ -16,7 +16,7 @@ Users are
 
 2. Buyer
 
-3.Seller
+  3.Seller
 
 ![Automated](https://user-images.githubusercontent.com/112753764/221529866-f5668aa5-50a9-4b21-a0ea-a63e6e1fd1f8.png)
 
